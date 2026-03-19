@@ -12,3 +12,4 @@ sqlalchemy[asyncio]
 psycopg2-binary
 uuid
 requests
+torch
