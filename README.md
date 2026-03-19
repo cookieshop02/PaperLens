@@ -1,7 +1,6 @@
 
 
 
-
 # 🔍 PaperLens
 
 > Upload research papers. Ask anything. See exactly where the answer came from.
@@ -16,6 +15,13 @@
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 ---
+
+🎉🎉🎉 PaperLens is live!
+Here are URLs:
+
+Frontend: https://huggingface.co/spaces/Cookie02Shop/paperlens
+Backend: https://huggingface.co/spaces/Cookie02Shop/paperlens-api
+
 
 ## 📌 Table of Contents
 
