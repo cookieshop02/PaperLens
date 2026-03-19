@@ -1,3 +1,15 @@
+---
+title: PaperLens API
+emoji: 🔍
+colorFrom: blue
+colorTo: purple
+sdk: docker
+pinned: false
+---
+
+
+
+
 # 🔍 PaperLens
 
 > Upload research papers. Ask anything. See exactly where the answer came from.
