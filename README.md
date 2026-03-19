@@ -19,8 +19,8 @@
 🎉🎉🎉 PaperLens is live!
 Here are URLs:
 
-Frontend: https://huggingface.co/spaces/Cookie02Shop/paperlens
-Backend: https://huggingface.co/spaces/Cookie02Shop/paperlens-api
+- Frontend: https://huggingface.co/spaces/Cookie02Shop/paperlens
+- Backend: https://huggingface.co/spaces/Cookie02Shop/paperlens-api
 
 
 ## 📌 Table of Contents
