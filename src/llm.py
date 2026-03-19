@@ -4,7 +4,8 @@ import os
 
 load_dotenv()
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+def get_client():
+    return Groq(api_key=os.getenv("GROQ_API_KEY"))
 MODEL = "llama-3.1-8b-instant"
 
 SYSTEM_PROMPT = """You are PaperLens, a research assistant that answers questions STRICTLY based on the provided context from uploaded research papers.
@@ -62,7 +63,7 @@ Question: {query}"""
         {"role": "user", "content": user_message_with_context}
     ]
 
-    response = client.chat.completions.create(
+    response = get_client().chat.completions.create(
         model=MODEL,
         messages=messages,
         max_tokens=1000,
