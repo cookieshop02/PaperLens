@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API = "http://127.0.0.1:8000"
+API = "https://Cookie02Shop-paperlens-api.hf.space"
 
 st.set_page_config(
     page_title="PaperLens",
