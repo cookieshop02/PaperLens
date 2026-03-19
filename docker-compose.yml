@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: paperlens_db
+    restart: always
+    environment:
+      POSTGRES_USER: paperlens
+      POSTGRES_PASSWORD: paperlens123
+      POSTGRES_DB: paperlens
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

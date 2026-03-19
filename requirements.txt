@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+streamlit
+sentence-transformers
+qdrant-client
+groq
+pypdf2
+python-multipart
+python-dotenv
+asyncpg
+sqlalchemy[asyncio]
+psycopg2-binary
+uuid
+requests
