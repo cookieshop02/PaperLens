@@ -1,3 +1,8 @@
+import os
+from dotenv import load_dotenv
+from pathlib import Path
+
+
 from qdrant_client import QdrantClient
 from qdrant_client.models import (
     Distance, VectorParams, PointStruct, Filter, FieldCondition, MatchValue
@@ -8,7 +13,16 @@ COLLECTION_NAME = "paperlens_chunks"
 VECTOR_SIZE = 384  # all-MiniLM-L6-v2 output dim
 
 # Local file-based Qdrant — no cloud needed
-client = QdrantClient(path="qdrant_db")
+# (client = QdrantClient(path="qdrant_db"))
+
+
+load_dotenv(Path(__file__).parent.parent / ".env")
+
+#here we are using qdrant cloud, you can use local qdrant by uncommenting the line above and commenting the line below
+client = QdrantClient(
+    url=os.getenv("QDRANT_URL"),
+    api_key=os.getenv("QDRANT_API_KEY")
+)
 
 
 def init_collection():
@@ -41,7 +55,13 @@ def store_chunks(chunks: list[str], vectors: list[list[float]], filename: str):
         for chunk, vector in zip(chunks, vectors)
     ]
 
-    client.upsert(collection_name=COLLECTION_NAME, points=points)
+    # Upload in batches of 50 to avoid timeout
+    batch_size = 50
+    for i in range(0, len(points), batch_size):
+        batch = points[i:i + batch_size]
+        client.upsert(collection_name=COLLECTION_NAME, points=batch)
+        print(f"[VectorStore] Uploaded batch {i//batch_size + 1} — {len(batch)} chunks from '{filename}'.")
+    
     print(f"[VectorStore] Stored {len(points)} chunks from '{filename}'.")
 
 
